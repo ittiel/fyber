@@ -21,7 +21,7 @@ pipeline {
         stage('Build Docker') {
             steps {
                 sh"""
-                    docker build -t ittiel/fyber-consul-service:1.0.0 .
+                    podman build -t ittiel/fyber-consul-service:1.0.0 .
                 """
             }
         }
