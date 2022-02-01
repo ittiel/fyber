@@ -1,17 +1,6 @@
 pipeline {
 	agent any
 	stages {
-		stage('clean dir') {
-			steps {
-				deleteDir() /* clean up our workspace */
-			}
-		}
-        stage('Checkout projoject') {
-            steps {
-                git branch: '*/main',
-                url: 'git@github.com:ittiel/fyber-consul-service.git'
-               }
-        }
 
 		stage('Unit test') {
 			steps {
@@ -42,5 +31,10 @@ pipeline {
                 echo "Deploying artifact to Docker registry"
             }
         }
+        stage('clean dir') {
+        			steps {
+        				deleteDir() /* clean up our workspace */
+        			}
+        		}
 	}
 }
