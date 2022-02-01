@@ -1,10 +1,5 @@
 pipeline {
 	agent any
-	properties([
-       parameters([
-            string(name: 'VERSION', defaultValue: "1.0.0", description: 'The artifact version')
-       ])
-    ])
 	stages {
 		stage('clean dir') {
 			steps {
@@ -37,7 +32,7 @@ pipeline {
         stage('Build Docker') {
             steps {
                 sh"""
-                    docker build -t ittiel/fyber-consul-service:${VERSION} .
+                    docker build -t ittiel/fyber-consul-service:1.0.0 .
                 """
             }
         }
