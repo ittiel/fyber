@@ -13,7 +13,7 @@ pipeline {
 		}
         stage('Checkout projoject') {
             steps {
-                git branch: 'main',
+                git branch: '*/main',
                 url: 'git@github.com:ittiel/fyber-consul-service.git'
                }
         }
