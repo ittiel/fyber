@@ -1,0 +1,45 @@
+pipeline {
+	agent any
+	properties([
+       parameters([
+            string(name: 'VERSION', defaultValue: "1.0.0", description: 'The artifact version')
+       ])
+    ])
+	stages {
+		stage('clean dir') {
+			steps {
+				deleteDir() /* clean up our workspace */
+			}
+		}
+
+		stage('Unit test') {
+			steps {
+				sh"""
+				    mvn clean test
+				"""
+			}
+		}
+
+		stage('Build jar') {
+            steps {
+                sh"""
+                    mvn package  -DskipTests=true
+                """
+            }
+        }
+
+        stage('Build Docker') {
+            steps {
+                sh"""
+                    docker build -t ittiel/fyber-consul-service:${VERSION} .
+                """
+            }
+        }
+
+        stage('Deploy to registy') {
+            steps {
+                echo "Deploying artifact to Docker registry"
+            }
+        }
+	}
+}
