@@ -44,4 +44,4 @@ docker run  -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0
 ```
 ---
 ### Develope
-When running the service locally (Fro your IDE) - replace the consul host in the bootstrap.yml from consul to localhost.
+When running the service locally (from your IDE) - replace the consul host in the bootstrap.yml from consul to localhost.
