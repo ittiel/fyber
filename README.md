@@ -34,10 +34,13 @@ url -X 'GET' \
 
 
 ---
-### Docker build
+### Docker build and push
 ```
-docker build -t ittiel/fyber-consul-service:1.0.0 . 
+VERSION=1.0.0
+docker build -t ittiel/fyber-consul-service:${VERSION} . 
+docker push ittiel/fyber-consul-service:${VERSION}
 ```
+
  ### Docker run
 ```
 docker run  -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0
