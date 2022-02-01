@@ -40,5 +40,5 @@ docker build -t ittiel/fyber-consul-service:1.0.0 .
 ```
  ### Docker run
 ```
-docker run    -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0
+docker run  -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0
 ```

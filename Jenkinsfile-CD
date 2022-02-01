@@ -1,0 +1,19 @@
+pipeline {
+	agent any
+	stages {
+
+		stage('Run docker image locally') {
+			steps {
+			    echo "Run docker image locally"
+//				sh"""
+//				    docker run  -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0
+//				"""
+			}
+		}
+        stage('clean dir') {
+            steps {
+                deleteDir() /* clean up our workspace */
+            }
+        }
+	}
+}

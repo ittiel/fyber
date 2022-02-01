@@ -2,12 +2,28 @@ pipeline {
 	agent any
 	stages {
 
+		stage('Unit test') {
+			steps {
+				sh"""
+				    mvn clean test
+				"""
+			}
+		}
+
+		stage('Build jar') {
+            steps {
+                sh"""
+                    mvn package  -DskipTests=true
+                """
+            }
+        }
 
         stage('Build Docker') {
             steps {
-                sh"""
-                    podman build -t ittiel/fyber-consul-service:1.0.0 .
-                """
+            echo "building Docker image"
+//                sh"""
+//                    podman build -t ittiel/fyber-consul-service:1.0.0 .
+//                """
             }
         }
 
