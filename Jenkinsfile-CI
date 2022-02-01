@@ -11,6 +11,12 @@ pipeline {
 				deleteDir() /* clean up our workspace */
 			}
 		}
+        stage('Checkout projoject') {
+            steps {
+                git branch: 'master',
+                url: 'git@github.com:ittiel/fyber-consul-service.git'
+               }
+        }
 
 		stage('Unit test') {
 			steps {

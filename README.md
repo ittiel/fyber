@@ -15,7 +15,7 @@ Swagger UI is available on http://localhost:8081/swagger-ui/index.html#
 Based on Java/Spring for using Actuator, Consul discovery functionalities 
 Assumes consul is available on startup
 
-Uses swagger for tests
+Test with: 
 http://localhost:8081/swagger-ui/index.html
 ### Set key:
 ```
@@ -40,4 +40,5 @@ docker build -t ittiel/fyber-consul-service:1.0.0 .
 ```
  ### Docker run
 ```
-docker run    -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0```
+docker run    -p 8081:8081 --link consul:consul ittiel/fyber-consul-service:1.0.0
+```
